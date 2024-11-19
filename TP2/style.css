@@ -1,20 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
 	box-sizing: border-box;
 }
 
 body {
+	font-family: "Montserrat", sans-serif;
 	margin: 0;
 }
 
-.clearfix::before {
-	content: "";
-	display: table;
-}
-
-.clearfix::after {
-	content: "";
-	display: table; /* controle les marges des enfants */
-	clear: both;
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .container {
@@ -23,17 +20,19 @@ body {
 	position: relative;
 }
 
-.vertically-centered {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
 header {
 	background-color: #0099ee;
-	padding: 10px 0;
+	padding: 1rem 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 	.container > a {
-		float: left;
 		line-height: 0;
 		svg {
 			width: 140px;
@@ -41,14 +40,11 @@ header {
 		}
 	}
 	nav {
-		float: right;
 		ul {
 			list-style: none;
 			margin: 0;
 			padding: 0;
-		}
-		li {
-			float: left;
+			display: flex;
 		}
 		a {
 			padding: 1em;
@@ -60,31 +56,42 @@ header {
 /* SECTION 1 */
 
 .section1 {
-	height: 640px;
+	height: 40rem;
 	background-color: #0078bb;
-	padding-bottom: 20px;
+	padding-bottom: 1rem;
 	.container {
 		height: 100%;
-	}
-	footer {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		text-align: center;
+		display: flex;
+		flex-direction: column;
+		div {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
+		footer {
+			flex-shrink: 0;
+			text-align: center;
+		}
 	}
 }
 
 .section2 {
 	background-color: #008cda;
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
 	h1 {
 		text-align: center;
 	}
 	ul {
 		list-style: none;
 		padding: 0;
+		display: flex;
 	}
 	li {
-		float: left;
 		width: 25%;
 	}
 	article {
@@ -98,17 +105,19 @@ header {
 	h1 {
 		text-align: center;
 	}
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
 	.container > ul {
 		list-style: none;
 		padding: 0;
 		width: 70%;
 		margin: 1rem auto;
+		display: flex;
+		justify-content: space-between;
 		& > li {
-			float: left;
 			width: 48%;
-			&:nth-child(1) {
-				margin-right: 4%;
-			}
 		}
 	}
 	footer {
@@ -119,18 +128,18 @@ header {
 
 main + footer,
 body > footer {
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 	ul {
 		list-style: none;
 		padding: 0;
-	}
-	li {
-		float: left;
+		display: flex;
 	}
 	a {
 		padding: 1em;
 		display: block;
-	}
-	small {
-		right: 0;
 	}
 }
