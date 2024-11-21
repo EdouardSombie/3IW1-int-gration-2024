@@ -5,9 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<title>Spotify</title>
+		<script>
+			document.addEventListener("DOMContentLoaded", (event) => {
+				document.addEventListener("scroll", (event) => {
+					if (window.scrollY > 0) {
+						document.getElementById("site-header").classList.add("sticky");
+					} else {
+						document.getElementById("site-header").classList.remove("sticky");
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
-		<header class="">
+		<header id="site-header">
 			<div class="container">
 				<a href="#">
 					<svg
@@ -62,6 +73,7 @@
 	v3.025h2.37c1.181,0,1.891-0.579,1.891-1.514C551.688,70.376,550.978,69.849,549.797,69.849z" />
 					</svg>
 				</a>
+				<button class="menu-btn">Menu</button>
 				<nav>
 					<ul>
 						<li>
@@ -147,22 +159,22 @@
 					<h1>Écoutez gratuitement ou abonnez-vous à Spotify Premium.</h1>
 					<ul>
 						<li>
-							<article>
+							<article class="card">
 								<h2>Spotify Free</h2>
-								<h3>0,00 € / mois</h3>
+								<h3>0,00 € <small>/ mois</small></h3>
 								<ul>
 									<li>Lecture aléatoire</li>
-									<li>Sans interruptions</li>
-									<li>Zappez les titres sans limite</li>
-									<li>Écouter hors connexion</li>
-									<li>Écoutez les titres de votre choix</li>
-									<li>Son de qualité supérieure</li>
+									<li class="disabled">Sans interruptions</li>
+									<li class="disabled">Zappez les titres sans limite</li>
+									<li class="disabled">Écouter hors connexion</li>
+									<li class="disabled">Écoutez les titres de votre choix</li>
+									<li class="disabled">Son de qualité supérieure</li>
 								</ul>
 								<a href="#" class="ctaButton ctaButton--white">Démarrer</a>
 							</article>
 						</li>
 						<li>
-							<article>
+							<article class="card">
 								<h2>Spotify Premium</h2>
 								<h3>3 mois pour 0,99 €</h3>
 								<ul>

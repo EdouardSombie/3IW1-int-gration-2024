@@ -22,8 +22,12 @@
 	--light-blue: #2a468d;
 	--white: #fff;
 	--grey: grey;
+	--medium-grey: #d3d3d3;
 	--light-grey: #f8f8f8;
 	--black: black;
+
+	--shadow-color: rgba(0, 0, 0, 0.2);
+	--sticky-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -40,6 +44,10 @@ h3 {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+.disabled {
+	opacity: 0.5;
 }
 
 .container {
@@ -95,6 +103,51 @@ a {
 	}
 }
 
+/* Composant card */
+
+.card {
+	background-color: var(--white);
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem var(--shadow-color);
+	display: flex;
+	flex-direction: column;
+	transition: all 0.5s;
+	cursor: pointer;
+	&:hover {
+		transform: translateY(-1rem);
+		box-shadow: 0 0 3rem var(--shadow-color);
+	}
+	h2 {
+		font-size: 1.5rem;
+		font-weight: 400;
+		margin: 0;
+	}
+	h3 {
+		font-size: 2rem;
+		margin: 0;
+		small {
+			font-weight: 400;
+			font-size: 60%;
+		}
+	}
+	ul {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		padding-left: 1.25rem;
+		margin: 1rem 0;
+		border-top: solid thin var(--medium-grey);
+		border-bottom: solid thin var(--medium-grey);
+	}
+	li {
+		list-style-image: url("images/checklist.svg");
+		padding-left: 0.25rem;
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
 header {
 	background-color: transparent;
 	padding: 1rem 0;
@@ -104,7 +157,11 @@ header {
 	right: 0;
 	z-index: 2;
 	color: var(--white);
-
+	transition: all 1s;
+	&.sticky {
+		background-color: var(--sticky-color);
+		padding: 0.25rem 0;
+	}
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -116,6 +173,9 @@ header {
 			width: 140px;
 			height: auto;
 		}
+	}
+	.menu-btn {
+		display: none;
 	}
 	nav {
 		ul {
@@ -201,13 +261,18 @@ header {
 }
 
 .section3 {
-	background-color: #006ba6;
+	background-color: var(--light-grey);
 	h1 {
 		text-align: center;
+		font-size: 1.875rem;
+		margin: 3rem 0;
 	}
 	.container {
 		display: flex;
 		flex-direction: column;
+	}
+	.card {
+		height: 100%;
 	}
 	.container > ul {
 		list-style: none;
@@ -228,6 +293,9 @@ header {
 
 main + footer,
 body > footer {
+	background-color: var(--black);
+	color: var(--white);
+	font-size: 0.8125rem;
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -241,5 +309,50 @@ body > footer {
 	a {
 		padding: 1em;
 		display: block;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		margin: 0 2rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	header {
+		nav {
+			display: none;
+		}
+		.menu-btn {
+			display: block;
+		}
+	}
+
+	.section1 {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: var(--sticky-color);
+		}
+		h1 {
+			font-size: 3rem;
+		}
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+
+	.section2 {
+		ul {
+			flex-direction: column;
+			li {
+				width: 100%;
+			}
+		}
 	}
 }
