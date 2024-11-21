@@ -1,12 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+@keyframes fadeIn {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
 * {
 	box-sizing: border-box;
+}
+
+:root {
+	--green: #1db954;
+	--light-green: #1ed760;
+	--blue: #1e3264;
+	--light-blue: #2a468d;
+	--white: #fff;
+	--grey: grey;
+	--light-grey: #f8f8f8;
+	--black: black;
 }
 
 body {
 	font-family: "Montserrat", sans-serif;
 	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 800;
 }
 
 a {
@@ -20,13 +48,63 @@ a {
 	position: relative;
 }
 
+/* composant CTA button */
+
+.ctaButton {
+	background-color: var(--black);
+	color: var(--white);
+	font-weight: 800;
+	text-transform: uppercase;
+	padding: 1em 3em;
+	display: inline-block;
+	border-radius: 10000px;
+	letter-spacing: 0.1em;
+	text-align: center;
+	transition: all 0.3s;
+	border: solid thin var(--black);
+}
+
+/* classes modifier */
+
+.ctaButton--blue {
+	background-color: var(--blue);
+	border-color: var(--blue);
+	&:hover {
+		background-color: var(--light-blue);
+		border-color: var(--light-blue);
+	}
+}
+
+.ctaButton--green {
+	background-color: var(--green);
+	border-color: var(--green);
+	&:hover {
+		background-color: var(--light-green);
+		border-color: var(--light-green);
+	}
+}
+
+.ctaButton--white {
+	background-color: var(--white);
+	color: var(--green);
+	border-color: var(--green);
+	&:hover {
+		background-color: var(--light-green);
+		border-color: var(--light-green);
+		color: var(--white);
+	}
+}
+
 header {
-	background-color: #0099ee;
+	background-color: transparent;
 	padding: 1rem 0;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 2;
+	color: var(--white);
+
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -57,8 +135,22 @@ header {
 
 .section1 {
 	height: 40rem;
-	background-color: #0078bb;
+	background-image: url("images/hero-image.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom right;
 	padding-bottom: 1rem;
+	color: var(--white);
+	h1 {
+		font-size: 6rem;
+		margin: 0;
+	}
+	h2 {
+		font-size: 1.875rem;
+	}
+	.ctaButton {
+		animation: fadeIn 1s;
+	}
 	.container {
 		height: 100%;
 		display: flex;
@@ -78,13 +170,21 @@ header {
 }
 
 .section2 {
-	background-color: #008cda;
+	background-color: var(--white);
 	.container {
 		display: flex;
 		flex-direction: column;
 	}
 	h1 {
 		text-align: center;
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 1.25rem;
+	}
+	h3 {
+		font-size: 0.875rem;
+		font-weight: 400;
 	}
 	ul {
 		list-style: none;
