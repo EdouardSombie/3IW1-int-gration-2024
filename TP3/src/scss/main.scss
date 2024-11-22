@@ -1,5 +1,6 @@
-$bgColor: #ff0000;
+@use "vendor/modern-normalize.css";
 
-body {
-	background-color: $bgColor;
-}
+@use "partials/globals";
+
+@use "components/container";
+@use "components/button";

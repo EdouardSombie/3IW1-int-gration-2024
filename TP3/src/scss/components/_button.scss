@@ -1,0 +1,6 @@
+@use "../partials/functions" as f;
+
+.button {
+	padding: f.rem(10) f.rem(16);
+	display: inline-block;
+}

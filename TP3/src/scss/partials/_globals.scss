@@ -1,0 +1,14 @@
+@use "fonts";
+@use "variables" as v;
+@use "sass:color";
+
+:root {
+	@each $name, $value in v.$colors {
+		--#{$name}: #{$value};
+		--#{$name}-hover: #{color.scale($value, $lightness: 20%)};
+	}
+}
+
+body {
+	font-family: fonts.$font1;
+}
