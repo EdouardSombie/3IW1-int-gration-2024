@@ -14,6 +14,11 @@
 						document.getElementById("site-header").classList.remove("sticky");
 					}
 				});
+				document
+					.getElementById("menu-btn")
+					.addEventListener("click", (event) => {
+						document.getElementById("site-nav").classList.toggle("visible");
+					});
 			});
 		</script>
 	</head>
@@ -73,8 +78,20 @@
 	v3.025h2.37c1.181,0,1.891-0.579,1.891-1.514C551.688,70.376,550.978,69.849,549.797,69.849z" />
 					</svg>
 				</a>
-				<button class="menu-btn">Menu</button>
-				<nav>
+				<button id="menu-btn" class="menu-btn">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+					</svg>
+				</button>
+				<nav id="site-nav">
 					<ul>
 						<li>
 							<a href="#">Premium</a>
