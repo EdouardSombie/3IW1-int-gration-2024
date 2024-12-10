@@ -1,274 +1,641 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
-/*
-Document
-========
-*/
-/**
-Use a better box model (opinionated).
-*/
-*,
-::before,
-::after {
-  box-sizing: border-box;
+@layer base, components, utilities;
+@layer base {
+  /*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+  /*
+  Document
+  ========
+  */
+  /**
+  Use a better box model (opinionated).
+  */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+  html {
+    /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.15; /* 1. Correct the line height in all browsers. */
+    -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+    tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+  }
+  /*
+  Sections
+  ========
+  */
+  body {
+    margin: 0; /* Remove the margin in all browsers. */
+  }
+  /*
+  Text-level semantics
+  ====================
+  */
+  /**
+  Add the correct font weight in Chrome and Safari.
+  */
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  /**
+  1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+  2. Correct the odd 'em' font sizing in all browsers.
+  */
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  /**
+  Add the correct font size in all browsers.
+  */
+  small {
+    font-size: 80%;
+  }
+  /**
+  Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+  */
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  /*
+  Tabular data
+  ============
+  */
+  /**
+  Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+  */
+  table {
+    border-color: currentcolor;
+  }
+  /*
+  Forms
+  =====
+  */
+  /**
+  1. Change the font styles in all browsers.
+  2. Remove the margin in Firefox and Safari.
+  */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+  }
+  /**
+  Correct the inability to style clickable types in iOS and Safari.
+  */
+  button,
+  [type=button],
+  [type=reset],
+  [type=submit] {
+    -webkit-appearance: button;
+  }
+  /**
+  Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+  */
+  legend {
+    padding: 0;
+  }
+  /**
+  Add the correct vertical alignment in Chrome and Firefox.
+  */
+  progress {
+    vertical-align: baseline;
+  }
+  /**
+  Correct the cursor style of increment and decrement buttons in Safari.
+  */
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  /**
+  1. Correct the odd appearance in Chrome and Safari.
+  2. Correct the outline style in Safari.
+  */
+  [type=search] {
+    -webkit-appearance: textfield; /* 1 */
+    outline-offset: -2px; /* 2 */
+  }
+  /**
+  Remove the inner padding in Chrome and Safari on macOS.
+  */
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  /**
+  1. Correct the inability to style clickable types in iOS and Safari.
+  2. Change font properties to 'inherit' in Safari.
+  */
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    font: inherit; /* 2 */
+  }
+  /*
+  Interactive
+  ===========
+  */
+  /*
+  Add the correct display in Chrome and Safari.
+  */
+  summary {
+    display: list-item;
+  }
 }
-
-html {
-  /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.15; /* 1. Correct the line height in all browsers. */
-  -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
-  tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+@layer base {
+  :root {
+    --red: #dc3545;
+    --red-hover: rgb(223.5, 73.2, 87.6);
+    --red-transparent: rgba(220, 53, 69, 0.6);
+    --grey: #6c757d;
+    --grey-hover: rgb(121.2553648069, 130.8849785408, 139.4446351931);
+    --grey-transparent: rgba(108, 117, 125, 0.6);
+    --blue: #0d6efd;
+    --blue-hover: rgb(37.2, 124.5, 253.2);
+    --blue-transparent: rgba(13, 110, 253, 0.6);
+    --white: #fff;
+    --white-hover: white;
+    --white-transparent: rgba(255, 255, 255, 0.6);
+    --black: #000;
+    --black-hover: rgb(25.5, 25.5, 25.5);
+    --black-transparent: rgba(0, 0, 0, 0.6);
+  }
+  body {
+    font-family: "Inter", sans-serif;
+  }
 }
-
-/*
-Sections
-========
-*/
-body {
-  margin: 0; /* Remove the margin in all browsers. */
+@layer utilities {
+  .h-1 {
+    height: 0.25rem;
+  }
+  .w-1 {
+    width: 0.25rem;
+  }
+  .m-1 {
+    margin: 0.25rem;
+  }
+  .p-1 {
+    padding: 0.25rem;
+  }
+  .radius-1 {
+    border-radius: 0.25rem;
+  }
+  .mt-1 {
+    margin-top: 0.25rem;
+  }
+  .pt-1 {
+    padding-top: 0.25rem;
+  }
+  .mb-1 {
+    margin-bottom: 0.25rem;
+  }
+  .pb-1 {
+    padding-bottom: 0.25rem;
+  }
+  .ml-1 {
+    margin-left: 0.25rem;
+  }
+  .pl-1 {
+    padding-left: 0.25rem;
+  }
+  .mr-1 {
+    margin-right: 0.25rem;
+  }
+  .pr-1 {
+    padding-right: 0.25rem;
+  }
+  .h-2 {
+    height: 0.5rem;
+  }
+  .w-2 {
+    width: 0.5rem;
+  }
+  .m-2 {
+    margin: 0.5rem;
+  }
+  .p-2 {
+    padding: 0.5rem;
+  }
+  .radius-2 {
+    border-radius: 0.5rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .pt-2 {
+    padding-top: 0.5rem;
+  }
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  .pb-2 {
+    padding-bottom: 0.5rem;
+  }
+  .ml-2 {
+    margin-left: 0.5rem;
+  }
+  .pl-2 {
+    padding-left: 0.5rem;
+  }
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  .pr-2 {
+    padding-right: 0.5rem;
+  }
+  .h-3 {
+    height: 0.75rem;
+  }
+  .w-3 {
+    width: 0.75rem;
+  }
+  .m-3 {
+    margin: 0.75rem;
+  }
+  .p-3 {
+    padding: 0.75rem;
+  }
+  .radius-3 {
+    border-radius: 0.75rem;
+  }
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+  .pt-3 {
+    padding-top: 0.75rem;
+  }
+  .mb-3 {
+    margin-bottom: 0.75rem;
+  }
+  .pb-3 {
+    padding-bottom: 0.75rem;
+  }
+  .ml-3 {
+    margin-left: 0.75rem;
+  }
+  .pl-3 {
+    padding-left: 0.75rem;
+  }
+  .mr-3 {
+    margin-right: 0.75rem;
+  }
+  .pr-3 {
+    padding-right: 0.75rem;
+  }
+  .h-4 {
+    height: 1rem;
+  }
+  .w-4 {
+    width: 1rem;
+  }
+  .m-4 {
+    margin: 1rem;
+  }
+  .p-4 {
+    padding: 1rem;
+  }
+  .radius-4 {
+    border-radius: 1rem;
+  }
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  .pt-4 {
+    padding-top: 1rem;
+  }
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  .pb-4 {
+    padding-bottom: 1rem;
+  }
+  .ml-4 {
+    margin-left: 1rem;
+  }
+  .pl-4 {
+    padding-left: 1rem;
+  }
+  .mr-4 {
+    margin-right: 1rem;
+  }
+  .pr-4 {
+    padding-right: 1rem;
+  }
+  .h-5 {
+    height: 1.25rem;
+  }
+  .w-5 {
+    width: 1.25rem;
+  }
+  .m-5 {
+    margin: 1.25rem;
+  }
+  .p-5 {
+    padding: 1.25rem;
+  }
+  .radius-5 {
+    border-radius: 1.25rem;
+  }
+  .mt-5 {
+    margin-top: 1.25rem;
+  }
+  .pt-5 {
+    padding-top: 1.25rem;
+  }
+  .mb-5 {
+    margin-bottom: 1.25rem;
+  }
+  .pb-5 {
+    padding-bottom: 1.25rem;
+  }
+  .ml-5 {
+    margin-left: 1.25rem;
+  }
+  .pl-5 {
+    padding-left: 1.25rem;
+  }
+  .mr-5 {
+    margin-right: 1.25rem;
+  }
+  .pr-5 {
+    padding-right: 1.25rem;
+  }
+  .h-6 {
+    height: 1.5rem;
+  }
+  .w-6 {
+    width: 1.5rem;
+  }
+  .m-6 {
+    margin: 1.5rem;
+  }
+  .p-6 {
+    padding: 1.5rem;
+  }
+  .radius-6 {
+    border-radius: 1.5rem;
+  }
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  .pt-6 {
+    padding-top: 1.5rem;
+  }
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+  .pb-6 {
+    padding-bottom: 1.5rem;
+  }
+  .ml-6 {
+    margin-left: 1.5rem;
+  }
+  .pl-6 {
+    padding-left: 1.5rem;
+  }
+  .mr-6 {
+    margin-right: 1.5rem;
+  }
+  .pr-6 {
+    padding-right: 1.5rem;
+  }
+  .h-7 {
+    height: 1.75rem;
+  }
+  .w-7 {
+    width: 1.75rem;
+  }
+  .m-7 {
+    margin: 1.75rem;
+  }
+  .p-7 {
+    padding: 1.75rem;
+  }
+  .radius-7 {
+    border-radius: 1.75rem;
+  }
+  .mt-7 {
+    margin-top: 1.75rem;
+  }
+  .pt-7 {
+    padding-top: 1.75rem;
+  }
+  .mb-7 {
+    margin-bottom: 1.75rem;
+  }
+  .pb-7 {
+    padding-bottom: 1.75rem;
+  }
+  .ml-7 {
+    margin-left: 1.75rem;
+  }
+  .pl-7 {
+    padding-left: 1.75rem;
+  }
+  .mr-7 {
+    margin-right: 1.75rem;
+  }
+  .pr-7 {
+    padding-right: 1.75rem;
+  }
+  .h-8 {
+    height: 2rem;
+  }
+  .w-8 {
+    width: 2rem;
+  }
+  .m-8 {
+    margin: 2rem;
+  }
+  .p-8 {
+    padding: 2rem;
+  }
+  .radius-8 {
+    border-radius: 2rem;
+  }
+  .mt-8 {
+    margin-top: 2rem;
+  }
+  .pt-8 {
+    padding-top: 2rem;
+  }
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  .pb-8 {
+    padding-bottom: 2rem;
+  }
+  .ml-8 {
+    margin-left: 2rem;
+  }
+  .pl-8 {
+    padding-left: 2rem;
+  }
+  .mr-8 {
+    margin-right: 2rem;
+  }
+  .pr-8 {
+    padding-right: 2rem;
+  }
+  .bg-red {
+    background-color: var(--red);
+  }
+  .border-red {
+    border-color: var(--red);
+  }
+  .bg-grey {
+    background-color: var(--grey);
+  }
+  .border-grey {
+    border-color: var(--grey);
+  }
+  .bg-blue {
+    background-color: var(--blue);
+  }
+  .border-blue {
+    border-color: var(--blue);
+  }
+  .bg-white {
+    background-color: var(--white);
+  }
+  .border-white {
+    border-color: var(--white);
+  }
+  .bg-black {
+    background-color: var(--black);
+  }
+  .border-black {
+    border-color: var(--black);
+  }
 }
-
-/*
-Text-level semantics
-====================
-*/
-/**
-Add the correct font weight in Chrome and Safari.
-*/
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
-1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-2. Correct the odd 'em' font sizing in all browsers.
-*/
-code,
-kbd,
-samp,
-pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
-Add the correct font size in all browsers.
-*/
-small {
-  font-size: 80%;
-}
-
-/**
-Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
-*/
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/*
-Tabular data
-============
-*/
-/**
-Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
-*/
-table {
-  border-color: currentcolor;
-}
-
-/*
-Forms
-=====
-*/
-/**
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-*/
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
-Correct the inability to style clickable types in iOS and Safari.
-*/
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
-
-/**
-Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
-*/
-legend {
-  padding: 0;
-}
-
-/**
-Add the correct vertical alignment in Chrome and Firefox.
-*/
-progress {
-  vertical-align: baseline;
-}
-
-/**
-Correct the cursor style of increment and decrement buttons in Safari.
-*/
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
-*/
-[type=search] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
-Remove the inner padding in Chrome and Safari on macOS.
-*/
-::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to 'inherit' in Safari.
-*/
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/*
-Interactive
-===========
-*/
-/*
-Add the correct display in Chrome and Safari.
-*/
-summary {
-  display: list-item;
-}
-
-:root {
-  --red: #dc3545;
-  --red-hover: rgb(223.5, 73.2, 87.6);
-  --grey: #6c757d;
-  --grey-hover: rgb(121.2553648069, 130.8849785408, 139.4446351931);
-  --blue: #0d6efd;
-  --blue-hover: rgb(37.2, 124.5, 253.2);
-  --white: #fff;
-  --white-hover: white;
-  --black: #000;
-  --black-hover: rgb(25.5, 25.5, 25.5);
-}
-
-body {
-  font-family: "Inter", sans-serif;
-}
-
-.container {
-  margin: 0 2rem;
-}
-@media screen and (min-width: 576px) {
+@layer components {
   .container {
+    margin: 0 2rem;
+  }
+  @media screen and (min-width: 576px) {
+    .container {
+      margin: auto;
+      max-width: calc(576px - 4rem);
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: calc(768px - 4rem);
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .container {
+      max-width: calc(992px - 4rem);
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .container {
+      max-width: calc(1200px - 4rem);
+    }
+  }
+  @media screen and (min-width: 1400px) {
+    .container {
+      max-width: calc(1400px - 4rem);
+    }
+  }
+}
+@layer components {
+  .button {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    padding: 0.625rem 1rem;
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    transition: all 0.3s;
+  }
+  .button:hover {
+    background-color: var(--black-hover);
+  }
+  .button--primary {
+    background-color: var(--blue);
+  }
+  .button--primary:hover {
+    background-color: var(--blue-hover);
+  }
+  .button--secondary {
+    background-color: var(--grey);
+  }
+  .button--secondary:hover {
+    background-color: var(--grey-hover);
+  }
+  .button--danger {
+    background-color: var(--red);
+  }
+  .button--danger:hover {
+    background-color: var(--red-hover);
+  }
+  .button--lg {
+    padding: 1rem 1.5rem;
+  }
+  .button--sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
+}
+@layer components {
+  .banner {
+    aspect-ratio: 100/42;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .banner--text {
+    color: var(--white);
+    display: flex;
+    position: relative;
+  }
+  .banner--text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-transparent);
+  }
+  .banner__content {
+    font-size: 3rem;
+    line-height: 3.75rem;
+    font-weight: 700;
+    text-align: center;
+    max-width: 80%;
     margin: auto;
-    max-width: calc(576px - 4rem);
+    position: relative;
   }
-}
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: calc(768px - 4rem);
-  }
-}
-@media screen and (min-width: 992px) {
-  .container {
-    max-width: calc(992px - 4rem);
-  }
-}
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: calc(1200px - 4rem);
-  }
-}
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: calc(1400px - 4rem);
-  }
-}
-
-.button {
-  text-decoration: none;
-  color: inherit;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  padding: 0.625rem 1rem;
-  display: inline-block;
-  background-color: var(--black);
-  color: var(--white);
-  font-size: 1rem;
-  line-height: 1.125rem;
-  font-weight: 600;
-  border-radius: 0.375rem;
-  transition: all 0.3s;
-}
-.button:hover {
-  background-color: var(--black-hover);
-}
-.button--primary {
-  background-color: var(--blue);
-}
-.button--primary:hover {
-  background-color: var(--blue-hover);
-}
-.button--secondary {
-  background-color: var(--grey);
-}
-.button--secondary:hover {
-  background-color: var(--grey-hover);
-}
-.button--danger {
-  background-color: var(--red);
-}
-.button--danger:hover {
-  background-color: var(--red-hover);
-}
-.button--lg {
-  padding: 1rem 1.5rem;
-}
-.button--sm {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

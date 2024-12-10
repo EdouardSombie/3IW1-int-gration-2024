@@ -1,47 +1,48 @@
 @use "../partials/functions" as f;
 @use "../partials/mixins" as m;
-
-.button {
-	@include m.resetA;
-	@include m.resetButton;
-	padding: f.rem(10) f.rem(16);
-	display: inline-block;
-	background-color: var(--black);
-	color: var(--white);
-	font-size: f.rem(16);
-	line-height: f.rem(18);
-	font-weight: 600;
-	border-radius: f.rem(6);
-	transition: all 0.3s;
-	&:hover {
-		background-color: var(--black-hover);
-	}
-	// classes modificatrices de couleur
-	&--primary {
-		background-color: var(--blue);
+@layer components {
+	.button {
+		@include m.resetA;
+		@include m.resetButton;
+		padding: f.rem(10) f.rem(16);
+		display: inline-block;
+		background-color: var(--black);
+		color: var(--white);
+		font-size: f.rem(16);
+		line-height: f.rem(18);
+		font-weight: 600;
+		border-radius: f.rem(6);
+		transition: all 0.3s;
 		&:hover {
-			background-color: var(--blue-hover);
+			background-color: var(--black-hover);
 		}
-	}
-	&--secondary {
-		background-color: var(--grey);
-		&:hover {
-			background-color: var(--grey-hover);
+		// classes modificatrices de couleur
+		&--primary {
+			background-color: var(--blue);
+			&:hover {
+				background-color: var(--blue-hover);
+			}
 		}
-	}
-	&--danger {
-		background-color: var(--red);
-		&:hover {
-			background-color: var(--red-hover);
+		&--secondary {
+			background-color: var(--grey);
+			&:hover {
+				background-color: var(--grey-hover);
+			}
 		}
-	}
-	// classes modificatrices de taille
-	&--lg {
-		padding: f.rem(16) f.rem(24);
-	}
-	&--sm {
-		padding: f.rem(8) f.rem(12);
-		font-size: f.rem(14);
-		line-height: f.rem(16);
+		&--danger {
+			background-color: var(--red);
+			&:hover {
+				background-color: var(--red-hover);
+			}
+		}
+		// classes modificatrices de taille
+		&--lg {
+			padding: f.rem(16) f.rem(24);
+		}
+		&--sm {
+			padding: f.rem(8) f.rem(12);
+			font-size: f.rem(14);
+			line-height: f.rem(16);
+		}
 	}
 }
