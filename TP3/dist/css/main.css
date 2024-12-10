@@ -179,11 +179,15 @@ summary {
 
 :root {
   --red: #dc3545;
-  --red-hover: rgb(227, 93.4, 106.2);
+  --red-hover: rgb(223.5, 73.2, 87.6);
   --grey: #6c757d;
-  --grey-hover: rgb(136.1158798283, 144.6755364807, 152.2841201717);
+  --grey-hover: rgb(121.2553648069, 130.8849785408, 139.4446351931);
   --blue: #0d6efd;
-  --blue-hover: rgb(61.4, 139, 253.4);
+  --blue-hover: rgb(37.2, 124.5, 253.2);
+  --white: #fff;
+  --white-hover: white;
+  --black: #000;
+  --black-hover: rgb(25.5, 25.5, 25.5);
 }
 
 body {
@@ -201,32 +205,70 @@ body {
 }
 @media screen and (min-width: 768px) {
   .container {
-    margin: auto;
     max-width: calc(768px - 4rem);
   }
 }
 @media screen and (min-width: 992px) {
   .container {
-    margin: auto;
     max-width: calc(992px - 4rem);
   }
 }
 @media screen and (min-width: 1200px) {
   .container {
-    margin: auto;
     max-width: calc(1200px - 4rem);
   }
 }
 @media screen and (min-width: 1400px) {
   .container {
-    margin: auto;
     max-width: calc(1400px - 4rem);
   }
 }
 
 .button {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
   padding: 0.625rem 1rem;
   display: inline-block;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  transition: all 0.3s;
+}
+.button:hover {
+  background-color: var(--black-hover);
+}
+.button--primary {
+  background-color: var(--blue);
+}
+.button--primary:hover {
+  background-color: var(--blue-hover);
+}
+.button--secondary {
+  background-color: var(--grey);
+}
+.button--secondary:hover {
+  background-color: var(--grey-hover);
+}
+.button--danger {
+  background-color: var(--red);
+}
+.button--danger:hover {
+  background-color: var(--red-hover);
+}
+.button--lg {
+  padding: 1rem 1.5rem;
+}
+.button--sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

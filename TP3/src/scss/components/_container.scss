@@ -5,7 +5,9 @@
 
 	@each $name, $value in v.$breakpoints {
 		@media screen and (min-width: $value) {
-			margin: auto;
+			@if ($name == "sm") {
+				margin: auto;
+			}
 			max-width: calc($value - 4rem);
 		}
 	}

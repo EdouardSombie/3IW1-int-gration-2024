@@ -5,7 +5,7 @@
 :root {
 	@each $name, $value in v.$colors {
 		--#{$name}: #{$value};
-		--#{$name}-hover: #{color.scale($value, $lightness: 20%)};
+		--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
 	}
 }
 
