@@ -1,5 +1,7 @@
 // Colors
 
+@use "sass:color";
+
 $colors: (
 	"red": #dc3545,
 	"grey": #6c757d,
@@ -7,6 +9,16 @@ $colors: (
 	"white": #fff,
 	"black": #000,
 );
+
+@each $name, $value in $colors {
+	.danny-#{$name} {
+		--#{$name}: #{color.scale($value, $lightness: -20%)};
+		background-color: var(--#{$name});
+		&:hover {
+			background-color: var(--#{$name}-hover);
+		}
+	}
+}
 
 // Breakpoints
 
