@@ -8,17 +8,16 @@ $colors: (
 	"blue": #0d6efd,
 	"white": #fff,
 	"black": #000,
+	"purple": #c026d3,
+	"yellow": #f7f023,
+	"green": #09cb2c,
+	"light-grey": #fafafa,
+	"primary": #0d6efd,
+	"secondary": #6c757d,
+	"accent": #dc3545,
+	"text-color": #3f3f46,
+	"shadow-color": rgba(0, 0, 0, 0.1),
 );
-
-@each $name, $value in $colors {
-	.danny-#{$name} {
-		--#{$name}: #{color.scale($value, $lightness: -20%)};
-		background-color: var(--#{$name});
-		&:hover {
-			background-color: var(--#{$name}-hover);
-		}
-	}
-}
 
 // Breakpoints
 

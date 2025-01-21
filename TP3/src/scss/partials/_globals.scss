@@ -5,8 +5,10 @@
 	:root {
 		@each $name, $value in v.$colors {
 			--#{$name}: #{$value};
-			--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
-			--#{$name}-transparent: #{color.scale($value, $alpha: -40%)};
+			@if ($name != "text-color" and $name != "shadow-color") {
+				--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
+				--#{$name}-transparent: #{color.scale($value, $alpha: -40%)};
+			}
 		}
 	}
 

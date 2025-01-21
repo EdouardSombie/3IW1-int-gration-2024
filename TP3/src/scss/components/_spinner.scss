@@ -1,0 +1,35 @@
+@use "../partials/variables" as v;
+
+@layer components {
+	.spinner {
+		--spinner-color: var(--black);
+		display: inline-block;
+		width: 2rem;
+		aspect-ratio: 1/1;
+		border: solid 0.25rem var(--spinner-color);
+		border-right-color: transparent;
+		border-radius: 100rem;
+		animation: rotate 1s linear infinite;
+		&--sm {
+			width: 1rem;
+		}
+		&--lg {
+			width: 3rem;
+		}
+		@each $name, $value in v.$colors {
+			@if ($name != "text-color" and $name != "shadow-color") {
+				&--#{$name} {
+					--spinner-color: var(--#{$name});
+				}
+			}
+		}
+	}
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}
