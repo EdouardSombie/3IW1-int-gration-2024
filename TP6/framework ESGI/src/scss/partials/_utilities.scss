@@ -1,0 +1,48 @@
+@use "variables" as v;
+@layer utilities {
+	$increment: 0.25rem;
+
+	$directions: (
+		t: top,
+		b: bottom,
+		l: left,
+		r: right,
+	);
+
+	// spacing
+	@for $i from 1 through 8 {
+		.h-#{$i} {
+			height: $i * $increment;
+		}
+		.w-#{$i} {
+			width: $i * $increment;
+		}
+		.m-#{$i} {
+			margin: $i * $increment;
+		}
+		.p-#{$i} {
+			padding: $i * $increment;
+		}
+		.radius-#{$i} {
+			border-radius: $i * $increment;
+		}
+		@each $name, $value in $directions {
+			.m#{$name}-#{$i} {
+				margin-#{$value}: $i * $increment;
+			}
+			.p#{$name}-#{$i} {
+				padding-#{$value}: $i * $increment;
+			}
+		}
+	}
+
+	// colors
+	@each $name, $value in v.$colors {
+		.bg-#{$name} {
+			background-color: var(--#{$name});
+		}
+		.border-#{$name} {
+			border-color: var(--#{$name});
+		}
+	}
+}

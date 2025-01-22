@@ -1,0 +1,43 @@
+@use "../partials/mixins" as m;
+@use "../partials/functions" as f;
+@layer components {
+	.navbar {
+		background-color: var(--neutral-50);
+		color: var(--neutral-700);
+		padding: f.rem(16) 0;
+		.container {
+			@include m.flexbox($direction: column, $align: flex-start);
+			position: relative;
+			@media (width >= f.screen(md)) {
+				@include m.flexbox($direction: row, $gap: f.rem(30), $align: center);
+			}
+		}
+		a {
+			@include m.resetA;
+		}
+		ul {
+			@include m.resetList;
+			padding-top: 1rem;
+			@include m.flexbox($direction: column, $gap: f.rem(8));
+			@media (width >= f.screen(md)) {
+				@include m.flexbox($direction: row, $gap: f.rem(18));
+				flex-grow: 1;
+			}
+		}
+		form {
+			display: none;
+			@media (width >= f.screen(lg)) {
+				@include m.flexbox($gap: f.rem(10));
+			}
+		}
+		&__button {
+			@include m.resetButton;
+			position: absolute;
+			top: 0;
+			right: 0;
+			@media (width >= f.screen(md)) {
+				display: none;
+			}
+		}
+	}
+}

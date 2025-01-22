@@ -1,0 +1,43 @@
+@use "../partials/functions" as f;
+@layer components {
+	.banner {
+		aspect-ratio: 3 / 2;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		// classe modifier
+		&--text {
+			color: var(--white);
+			display: flex;
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: var(--black-transparent);
+			}
+		}
+		// classe d'élément
+		&__content {
+			font-size: f.rem(24);
+			line-height: f.rem(36);
+			font-weight: 700;
+			text-align: center;
+			max-width: 85%;
+			margin: auto;
+			position: relative;
+			@media (width >= f.screen(lg)) {
+				font-size: f.rem(48);
+				line-height: f.rem(60);
+			}
+		}
+
+		@media (width >= f.screen(sm)) {
+			aspect-ratio: 100 / 42;
+		}
+	}
+}

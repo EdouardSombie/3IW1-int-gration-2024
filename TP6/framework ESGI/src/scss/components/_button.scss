@@ -1,7 +1,7 @@
 @use "../partials/functions" as f;
 @use "../partials/mixins" as m;
 @layer components {
-	.button {
+	body .button {
 		@include m.resetA;
 		@include m.resetButton;
 		padding: f.rem(10) f.rem(16);

@@ -35,11 +35,14 @@
 
 	body {
 		font-family: fonts.$font1;
+		background-color: var(--white);
+		color: var(--black);
 	}
 
 	input {
 		border-radius: f.rem(6);
 		padding: f.rem(10) f.rem(16);
 		border: solid thin currentColor;
+		//background-color: var(--input-bg-color);
 	}
 }
